@@ -32,11 +32,12 @@ public class DetailsActivity extends AppCompatActivity {
 
         double discount = intent.getDoubleExtra("discount", 0);
         double amount = intent.getDoubleExtra("amount", 0);
+        double taxes = intent.getDoubleExtra("taxes", 0);
         double totalPayment = intent.getDoubleExtra("totalPayment", 0);
 
         binding.carName.setText(carName);
         binding.dailyRent.setText(String.format("$ %.2f", dailyRent));
-        binding.noOfDays.setText(String.format("$ %d", noOfDays));
+        binding.noOfDays.setText(String.format("%d Day%s", noOfDays, noOfDays > 1 ? "s" : ""));
         binding.driversAge.setText(ageGroup.getLabel());
 
         String additionalOptions = "";
@@ -64,7 +65,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         binding.amount.setText(String.format("$ %.2f", amount));
-        binding.taxes.setText(String.format("$ %.2f", 13.0));
+        binding.taxes.setText(String.format("$ %.2f",taxes));
         binding.totalPayment.setText(String.format("$ %.2f", totalPayment));
 
         binding.confirmService.setOnClickListener(v -> {

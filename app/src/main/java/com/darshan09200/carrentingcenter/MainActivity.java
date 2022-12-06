@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity {
         if (ageGroup == AgeGroup.ABOVE_60) discount = 10;
 
         amountBeforeTaxes -= discount;
-        double amountAfterTaxes = amountBeforeTaxes + amountBeforeTaxes * 0.13;
+        double taxes = amountBeforeTaxes * 0.13;
+        double amountAfterTaxes = amountBeforeTaxes + taxes;
 
         binding.amountLabel.setText(String.format("Amount: %.2f", amountBeforeTaxes));
         binding.totalPaymentLabel.setText(String.format("Total Payment: %.2f", amountAfterTaxes));
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, DetailsActivity.class);
 
             intent.putExtra("carName", carDetails.getName());
-            intent.putExtra("dailyRent", carDetails.getName());
+            intent.putExtra("dailyRent", carDetails.getPrice());
             intent.putExtra("noOfDays", noOfDays);
             intent.putExtra("ageGroup", ageGroup);
             intent.putExtra("isGpsChecked", isGpsChecked);
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("isUnlimitedMileageChecked", isUnlimitedMileageChecked);
             intent.putExtra("discount", discount);
             intent.putExtra("amount", amountBeforeTaxes);
+            intent.putExtra("taxes", taxes);
             intent.putExtra("totalPayment", amountAfterTaxes);
 
             startActivity(intent);
