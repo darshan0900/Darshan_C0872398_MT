@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:textColor="@color/primary"/>
 
     <Spinner
         android:id="@+id/carName"
@@ -77,26 +78,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:checkedButton="@id/lessThanAge"
-        android:layout_marginStart="16dp">
+        android:layout_marginStart="16dp"
+        android:checkedButton="@id/lessThanAge">
 
         <RadioButton
             android:id="@+id/lessThanAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Less than 20" />
+            android:text="Less than 20"
+            android:textColor="@color/custom_green"
+            app:useMaterialThemeColors="false" />
 
         <RadioButton
             android:id="@+id/betweenAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Between 21 and 60" />
+            android:text="Between 21 and 60"
+            android:textColor="@color/custom_green" />
 
         <RadioButton
             android:id="@+id/aboveAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Above 60" />
+            android:text="Above 60"
+            android:textColor="@color/custom_green" />
     </RadioGroup>
 
     <TextView
@@ -119,7 +124,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="GPS" />
+            android:text="GPS"
+            android:textColor="@color/custom_green"/>
 
         <CheckBox
             android:id="@+id/childSeat"
@@ -127,14 +133,16 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:text="Child Seat" />
+            android:text="Child Seat"
+            android:textColor="@color/custom_green"/>
 
         <CheckBox
             android:id="@+id/unlimitedMileage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Unlimited mileage" />
+            android:text="Unlimited mileage"
+            android:textColor="@color/custom_green"/>
     </LinearLayout>
 
     <LinearLayout
