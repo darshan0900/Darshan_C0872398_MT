@@ -3,6 +3,8 @@ package com.darshan09200.carrentingcenter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -29,16 +31,34 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        carNames = new ArrayList<>(Arrays.asList(getString(R.string.car_name_prompt),"BMW", "Audi", "Cadillac", "Volks Wagon", "Mercedes", "Peugeot"));
+        carNames = Database.getInstance().getCarNames();
         carNamesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, carNames);
         carNamesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.carName.setAdapter(carNamesAdapter);
 
-        binding.noOfDaysSeekbar.incrementProgressBy(1);
+        binding.carName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    Car currentCar = Database.getInstance().getCar(position);
+                    if (currentCar != null) {
+                        binding.dailyRent.setText(String.format("$%.2f", currentCar.getPrice()));
+                    }
+                } else {
+                    binding.dailyRent.setText("");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         binding.noOfDaysSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                binding.noOfDays.setText(String.format("%d Days", progress));
+                binding.noOfDays.setText(String.format("%d Day%s", progress, progress > 1 ? "s" : ""));
             }
 
             @Override
@@ -51,5 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }
