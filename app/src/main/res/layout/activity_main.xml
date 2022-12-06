@@ -16,13 +16,13 @@
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
-    <!--    <Spinner-->
-    <!--        android:id="@+id/carName"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="24dp"-->
-    <!--        android:layout_marginBottom="8dp"-->
-    <!--        android:prompt="Please Choose a Car" />-->
+        <Spinner
+            android:id="@+id/carName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:prompt="Please Choose a Car" />
 
     <EditText
         android:id="@+id/dailyRent"
