@@ -13,9 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
+        android:textColor="@color/primary"
         android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/primary"/>
+        android:textStyle="bold|italic" />
 
     <Spinner
         android:id="@+id/carName"
@@ -86,8 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Less than 20"
-            android:textColor="@color/custom_green"
-            app:useMaterialThemeColors="false" />
+            android:textColor="@color/custom_green" />
 
         <RadioButton
             android:id="@+id/betweenAge"
@@ -125,7 +124,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:text="GPS"
-            android:textColor="@color/custom_green"/>
+            android:textColor="@color/custom_green" />
 
         <CheckBox
             android:id="@+id/childSeat"
@@ -134,7 +133,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:text="Child Seat"
-            android:textColor="@color/custom_green"/>
+            android:textColor="@color/custom_green" />
 
         <CheckBox
             android:id="@+id/unlimitedMileage"
@@ -142,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Unlimited mileage"
-            android:textColor="@color/custom_green"/>
+            android:textColor="@color/custom_green" />
     </LinearLayout>
 
     <LinearLayout
