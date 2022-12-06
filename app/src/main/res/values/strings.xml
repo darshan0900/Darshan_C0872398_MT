@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Car Renting Center</string>
+    <string name="car_name_prompt">Please Choose a Car</string>
 </resources>
