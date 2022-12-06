@@ -35,5 +35,21 @@ public class MainActivity extends AppCompatActivity {
         binding.carName.setAdapter(carNamesAdapter);
 
         binding.noOfDaysSeekbar.incrementProgressBy(1);
+        binding.noOfDaysSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                binding.noOfDays.setText(String.format("%d Days", progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 }
