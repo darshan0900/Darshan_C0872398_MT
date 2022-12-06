@@ -29,6 +29,7 @@ public class Database {
     public static int UNLIMITED_MILEAGE_CHARGES = 10;
 
     private final ArrayList<Car> carNamesData;
+    private boolean clearDataFlag = false;
 
     private Database() {
         carNamesData = new ArrayList<>();
@@ -64,5 +65,17 @@ public class Database {
             return currentCar;
         }
         return null;
+    }
+
+    public void setClearDataFlag() {
+        clearDataFlag = true;
+    }
+
+    public boolean shouldClearData() {
+        return clearDataFlag;
+    }
+
+    public void resetClearDataFlag() {
+        clearDataFlag = false;
     }
 }

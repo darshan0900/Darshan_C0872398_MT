@@ -1,11 +1,14 @@
 package com.darshan09200.carrentingcenter;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.darshan09200.carrentingcenter.databinding.ActivityDetailsBinding;
 
@@ -65,7 +68,17 @@ public class DetailsActivity extends AppCompatActivity {
         binding.totalPayment.setText(String.format("$ %.2f", totalPayment));
 
         binding.confirmService.setOnClickListener(v -> {
-            System.out.println("Confirm");
+            new AlertDialog.Builder(this)
+                    .setTitle("Confirm Service")
+                    .setMessage("Are you sure you want to confirm this service?")
+                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                        Toast.makeText(DetailsActivity.this, "Service Confirmed", Toast.LENGTH_SHORT).show();
+                        Database.getInstance().setClearDataFlag();
+                        finish();
+                    })
+                    .setNegativeButton(android.R.string.no, null)
+                    .show();
         });
     }
+
 }

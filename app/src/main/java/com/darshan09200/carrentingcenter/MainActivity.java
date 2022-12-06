@@ -153,4 +153,20 @@ public class MainActivity extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        if(Database.getInstance().shouldClearData()){
+            binding.carName.setSelection(0);
+            binding.noOfDaysSeekbar.setProgress(1);
+            binding.ageGroup.check(R.id.lessThanAge);
+            binding.gps.setChecked(false);
+            binding.childSeat.setChecked(false);
+            binding.unlimitedMileage.setChecked(false);
+        }
+
+        Database.getInstance().resetClearDataFlag();
+    }
 }
