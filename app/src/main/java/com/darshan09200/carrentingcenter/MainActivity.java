@@ -2,6 +2,7 @@ package com.darshan09200.carrentingcenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -106,12 +107,32 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(isGpsChecked + " " + isChildSeatChecked + " " + isUnlimitedMileageChecked);
         amountBeforeTaxes = dailyAmount * noOfDays;
-        if (ageGroup == AgeGroup.ABOVE_60) amountBeforeTaxes -= 10;
 
+        double discount = 0;
+        if (ageGroup == AgeGroup.ABOVE_60) discount = 10;
+
+        amountBeforeTaxes -= discount;
         double amountAfterTaxes = amountBeforeTaxes + amountBeforeTaxes * 0.13;
 
         binding.amountLabel.setText(String.format("Amount: %.2f", amountBeforeTaxes));
         binding.totalPaymentLabel.setText(String.format("Total Payment: %.2f", amountAfterTaxes));
+
+        if(validate) {
+            Intent intent = new Intent(this, DetailsActivity.class);
+
+            intent.putExtra("carName", carDetails.getName());
+            intent.putExtra("dailyRent", carDetails.getName());
+            intent.putExtra("noOfDays", noOfDays);
+            intent.putExtra("ageGroup", ageGroup);
+            intent.putExtra("isGpsChecked", isGpsChecked);
+            intent.putExtra("isChildSeatChecked", isChildSeatChecked);
+            intent.putExtra("isUnlimitedMileageChecked", isUnlimitedMileageChecked);
+            intent.putExtra("discount", discount);
+            intent.putExtra("amount", amountBeforeTaxes);
+            intent.putExtra("totalPayment", amountAfterTaxes);
+
+            startActivity(intent);
+        }
     }
 
     private Car getCarDetails() {

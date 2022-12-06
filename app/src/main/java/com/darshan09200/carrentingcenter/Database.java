@@ -3,9 +3,19 @@ package com.darshan09200.carrentingcenter;
 import java.util.ArrayList;
 
 enum AgeGroup {
-    UNDER_20,
-    BETWEEN_21_AND_60,
-    ABOVE_60
+    UNDER_20("Under 20"),
+    BETWEEN_21_AND_60("Between 21 and 60"),
+    ABOVE_60("Above 60");
+
+    private final String label;
+
+    AgeGroup(String label) {
+        this.label = label;
+    }
+
+    public String getLabel() {
+        return label;
+    }
 }
 
 public class Database {
