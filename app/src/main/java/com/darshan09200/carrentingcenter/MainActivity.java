@@ -7,25 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darshan09200.carrentingcenter.databinding.ActivityMainBinding;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private ArrayList<String> carNames;
-    private ArrayAdapter<String> carNamesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        carNames = Database.getInstance().getCarNames();
-        carNamesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, carNames);
+        ArrayList<String> carNames = Database.getInstance().getCarNames();
+        ArrayAdapter<String> carNamesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, carNames);
         carNamesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.carName.setAdapter(carNamesAdapter);
 
@@ -44,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 if (position > 0) {
                     Car currentCar = Database.getInstance().getCar(position);
                     if (currentCar != null) {
-                        binding.dailyRent.setText(String.format("$ %.2f", currentCar.getPrice()));
+                        binding.dailyRent.setText(String.format("$ %.2f", currentCar.getDailyRent()));
                     }
                 } else {
                     binding.dailyRent.setText("");
@@ -98,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isUnlimitedMileageChecked = binding.unlimitedMileage.isChecked();
 
         double amountBeforeTaxes = 0;
-        double dailyAmount = carDetails.getPrice();
+        double dailyAmount = carDetails.getDailyRent();
 
         if (ageGroup == AgeGroup.UNDER_20) dailyAmount += Database.UNDER_20_CHARGES;
         if (isGpsChecked) dailyAmount += Database.GPS_CHARGES;
@@ -109,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         amountBeforeTaxes = dailyAmount * noOfDays;
 
         double discount = 0;
-        if (ageGroup == AgeGroup.ABOVE_60) discount = 10;
+        if (ageGroup == AgeGroup.ABOVE_60) discount = Database.ABOVE_60_DISCOUNT;
 
         amountBeforeTaxes -= discount;
         double taxes = amountBeforeTaxes * 0.13;
@@ -122,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, DetailsActivity.class);
 
             intent.putExtra("carName", carDetails.getName());
-            intent.putExtra("dailyRent", carDetails.getPrice());
+            intent.putExtra("dailyRent", carDetails.getDailyRent());
             intent.putExtra("noOfDays", noOfDays);
             intent.putExtra("ageGroup", ageGroup);
             intent.putExtra("isGpsChecked", isGpsChecked);

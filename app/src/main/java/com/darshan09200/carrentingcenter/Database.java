@@ -19,7 +19,7 @@ enum AgeGroup {
 }
 
 public class Database {
-    private static Database databaseInstance = new Database();
+    private static final Database databaseInstance = new Database();
 
     public static int ABOVE_60_DISCOUNT = 10;
 
@@ -33,6 +33,7 @@ public class Database {
 
     private Database() {
         carNamesData = new ArrayList<>();
+
         carNamesData.add(new Car("Please Choose a Car", -1));
         carNamesData.add(new Car("BMW", 50));
         carNamesData.add(new Car("Audi", 65));
@@ -40,6 +41,7 @@ public class Database {
         carNamesData.add(new Car("Volks Wagon", 45));
         carNamesData.add(new Car("Mercedes", 65));
         carNamesData.add(new Car("Peugeot", 40));
+        carNamesData.add(new Car("Honda", 30));
     }
 
     public static Database getInstance() {
@@ -61,8 +63,7 @@ public class Database {
 
     public Car getCar(int position) {
         if (position > 0 && position < carNamesData.size()) {
-            Car currentCar = carNamesData.get(position);
-            return currentCar;
+            return carNamesData.get(position);
         }
         return null;
     }

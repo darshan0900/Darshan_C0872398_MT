@@ -2,18 +2,18 @@ package com.darshan09200.carrentingcenter;
 
 public class Car {
     private final String name;
-    private final double price;
+    private final double dailyRent;
 
-    public Car(String name, double price) {
+    public Car(String name, double dailyRent) {
         this.name = name;
-        this.price = price;
+        this.dailyRent = dailyRent;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getPrice() {
-        return price;
+    public double getDailyRent() {
+        return dailyRent;
     }
 }
