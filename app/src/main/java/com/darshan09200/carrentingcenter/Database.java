@@ -34,12 +34,12 @@ public class Database {
     private Database() {
         carNamesData = new ArrayList<>();
         carNamesData.add(new Car("Please Choose a Car", -1));
-        carNamesData.add(new Car("BMW", 10));
-        carNamesData.add(new Car("Audi", 10));
-        carNamesData.add(new Car("Cadillac", 10));
-        carNamesData.add(new Car("Volks Wagon", 10));
-        carNamesData.add(new Car("Mercedes", 10));
-        carNamesData.add(new Car("Peugeot", 10));
+        carNamesData.add(new Car("BMW", 50));
+        carNamesData.add(new Car("Audi", 65));
+        carNamesData.add(new Car("Cadillac", 30));
+        carNamesData.add(new Car("Volks Wagon", 45));
+        carNamesData.add(new Car("Mercedes", 65));
+        carNamesData.add(new Car("Peugeot", 40));
     }
 
     public static Database getInstance() {
