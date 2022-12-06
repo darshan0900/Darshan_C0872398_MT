@@ -2,8 +2,21 @@ package com.darshan09200.carrentingcenter;
 
 import java.util.ArrayList;
 
+enum AgeGroup {
+    UNDER_20,
+    BETWEEN_21_AND_60,
+    ABOVE_60
+}
+
 public class Database {
     private static Database databaseInstance = new Database();
+
+    public static int ABOVE_60_DISCOUNT = 10;
+
+    public static int UNDER_20_CHARGES = 5;
+    public static int GPS_CHARGES = 5;
+    public static int CHILD_SEAT_CHARGES = 7;
+    public static int UNLIMITED_MILEAGE_CHARGES = 10;
 
     private final ArrayList<Car> carNamesData;
 
@@ -36,7 +49,7 @@ public class Database {
     }
 
     public Car getCar(int position) {
-        if (position < carNamesData.size()) {
+        if (position > 0 && position < carNamesData.size()) {
             Car currentCar = carNamesData.get(position);
             return currentCar;
         }
