@@ -29,6 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
+        android:editable="false"
+        android:focusable="false"
         android:hint="Daily Rent"
         android:inputType="none" />
 
