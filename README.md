@@ -1,8 +1,5 @@
 # Car Renting Service
 
-> **Note**
-> Some more changes were done after the submission which can be found under [post-submission](https://github.com/darshan0900/Darshan_C0872398_MT/tree/post-submission).
-
 ## First Screen - Form
 - If you do not fill all details you will get errors.
 - Whenever you change anything in the form and car is selected the amounts will reflect automatically.
@@ -10,7 +7,7 @@
 
 |Base Form|Validate Form|Car Selected|Complete Form|
 |--|--|--|--|
-| ![Base Form](https://user-images.githubusercontent.com/114707330/206051890-b3b1c9be-cb6f-4a6f-888a-8b8e7f342f6c.png) | ![Validate Form](https://user-images.githubusercontent.com/114707330/206051903-1fbb46ed-7610-4b22-bc30-04d338f4549b.png) | ![Car Selected](https://user-images.githubusercontent.com/114707330/206051896-8dfabe58-5fc6-4706-a3a7-8971663ec5a4.png) | ![Complete Form](https://user-images.githubusercontent.com/114707330/206051898-1ae50297-0fe7-42f5-a283-3fa00e03ef0a.png)|
+| ![Base Form](https://user-images.githubusercontent.com/114707330/206059753-2165a16a-dc35-45af-b4a3-f3fbc29437d4.png) | ![Validate Form](https://user-images.githubusercontent.com/114707330/206059756-2f43f039-8607-4c69-adb2-3993f2fd2b30.png) | ![Car Selected](https://user-images.githubusercontent.com/114707330/206059757-340b9f0e-91d3-4db1-8c5b-08d521982488.png) | ![Complete Form](https://user-images.githubusercontent.com/114707330/206059758-4102732b-5257-4902-9a6f-3cb2f542e806.png)|
 
 ## Second Screen - Receipt
 - You can see all the details added in the form for service.
@@ -21,4 +18,4 @@
 
 |Service Receipt|Confirm Service|Service Confirmed|
 |--|--|--|
-| ![Service Receipt](https://user-images.githubusercontent.com/114707330/206051899-09c684c9-a557-48f3-90f4-c854cdab4f18.png)|![Confirm Service](https://user-images.githubusercontent.com/114707330/206051901-f5b98ecd-5547-4542-b062-7ac66113c807.png)|![Service Confirmed](https://user-images.githubusercontent.com/114707330/206051902-18ba3e12-4336-4774-a250-8a3066915fd1.png)|
+| ![Service Receipt](https://user-images.githubusercontent.com/114707330/206059759-50f57427-b207-4840-8a1e-de63eae5623f.png)|![Confirm Service](https://user-images.githubusercontent.com/114707330/206059760-ce9c5add-573a-4ab0-952a-bd2629705d34.png)|![Service Confirmed](https://user-images.githubusercontent.com/114707330/206059762-a652ef74-bce6-4985-a910-17f3842e947e.png)|
