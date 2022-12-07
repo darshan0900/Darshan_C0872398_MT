@@ -1,5 +1,8 @@
 # Car Renting Service
 
+> **Note**
+> Some more changes were done after the submission which can be found under [post-submission](https://github.com/darshan0900/Darshan_C0872398_MT/tree/post-submission).
+
 ## First Screen - Form
 - If you do not fill all details you will get errors.
 - Whenever you change anything in the form and car is selected the amounts will reflect automatically.
