@@ -57,12 +57,12 @@
 
     <SeekBar
         android:id="@+id/noOfDaysSeekbar"
+        style="@android:style/Widget.Material.SeekBar.Discrete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
         android:max="10"
-        android:min="1"
-        android:progress="1" />
+        android:min="1" />
 
     <TextView
         android:layout_width="wrap_content"
